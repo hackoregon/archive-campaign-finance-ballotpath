@@ -4,17 +4,18 @@
   var geocoder = new L.esri.Services.Geocoding();
 
   function init () {
-    $('.btn-elections').click(search);
+    $('.address-search').submit(search);
     $('#myTab a').click(function (e) {
       e.preventDefault();
       $(this).tab('show');
-    })
+    });
   }
 
   function search (event) {
     event.preventDefault();
 
     $('.election-rows').slideDown();
+    $('.intro-text').slideUp();
 
     var val = $('#query').val();
 
@@ -30,14 +31,11 @@
 
     homeLatLng = new L.LatLng(feature.geometry.y, feature.geometry.x);
 
-    map = L.map('map').setView(homeLatLng, 12);
+    map = L.map('map', {
+      scrollWheelZoom: false
+    }).setView(homeLatLng, 12);
     L.esri.basemapLayer("Streets").addTo(map);
     L.marker(homeLatLng).addTo(map);
-
-    // // add a marker in the given location, attach some popup content to it and open the popup
-    // L.marker([51.5, -0.09]).addTo(map)
-    //     .bindPopup('A pretty CSS3 popup. <br> Easily customizable.')
-    //     .openPopup();
   }
 
   $(init);

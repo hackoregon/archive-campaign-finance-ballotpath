@@ -3,176 +3,164 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css">
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css">
+<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
 
-        <body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Ballot Path</a>
+    </div>
+  </div>
+</nav>
 
-            <div class="navbar navbar-inverse navbar-fixed-top">
-              <div class="navbar-inner">
-                <div class="container">
-                  <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="brand" href="#">Ballot Path</a>
-                  <div class="nav-collapse collapse">
-                    <ul class="nav">
-                      <li class="active"><a href="#">Home</a></li>
-                      <li><a href="#about">About</a></li>
-                      <li><a href="#contact">Contact</a></li>
-                    </ul>
+<div class="container">
+  <div class="jumbotron intro-text">
+    <h1>Well, hello!</h1>
+    <p>I hope you're here to find out how run for office. First, let's figure out where you are.</p>
+  </div>
 
-                  </div><!--/.nav-collapse -->
-                </div>
-              </div>
-            </div>
+  <div class="row">
+    <div class="col-md-8">
+      <form class="address-search">
+        <div class="input-group">
+          <input id="query" class="form-control" type="text" placeholder="Address or zip code">
+          <span class="input-group-btn">
+            <button class="btn btn-primary btn-elections" type="button">Find my district!</button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
 
-            <div class="container">
-
-              <!-- Main hero unit for a primary marketing message or call to action -->
-              <div class="hero-unit">
-                <h1>Well, hello!</h1>
-                <p>I hope you're here to find out how run for office. First, let's figure out where you are.</p>
-                <form class="navbar-form">
-                  <input id="query" class="span2" type="text" placeholder="Address or zip code">
-                  <button type="submit" class="btn btn-elections">Let's do this</button>
-                </form>
-              </div>
-
-            <div class="election-rows">
-              <div class="row">
-                <div class="span12">
-                  <div id="map"></div>
-                </div>
-              </div>
-                <h3>Here is a list of your representatives and offices you may be eligible for!</h3>
-              <!-- Example row of columns -->
-              <ul class="nav nav-tabs">
-                <li><a href="#national" data-toggle="tab">National</a></li>
-                <li><a href="#state" data-toggle="tab">State</a></li>
-                <li><a href="#county" data-toggle="tab">County</a></li>
-                <li><a href="#local" data-toggle="tab">Local</a></li>
-              </ul>
-              <div class="tab-content">
-                <div class="tab-pane active election-group" id="national">
-                  <div class="row">
-                  <div class="span4">
-                    <h2>President</h2>
-                    <img src="img/reps/obama.jpg" />
-                    <p>Barack Obama</p>
-                  </div>
-                  <div class="span8">
-                    <ul class="nav nav-tabs">
-                      <li><a href="#president-benefits" data-toggle="tab">Benefits</a></li>
-                      <li><a href="#president-req" data-toggle="tab">Requirements</a></li>
-                      <li><a href="#president-doit" data-toggle="tab">Do it!</a></li>
-                      <li><a href="#president-contact" data-toggle="tab">Contact Current</a></li>
-                    </ul>
-                      <div class="row tab-content">
-                        <div class="tab-pane active" id="president-benefits">
-                          <div class="span4">
-                            <h4>Salary</h4>
-                            <p>$175,000</p>
-                            <h4>Term length</h4>
-                            <p>4 years</p>
-                          </div>
-                          <div class="span4">
-                            <h4>Job Description</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula consectetur semper. Duis porta a justo nec laoreet. Pellentesque sodales laoreet dolor quis convallis. Aenean massa ipsum, porttitor eget dapibus vel, convallis sit amet elit. Etiam eu venenatis justo. Morbi tincidunt pulvinar orci, ut vestibulum magna porta id. Mauris pretium consequat dui, nec aliquet ligula vulputate sed. In tempor a urna vel congue.</p>
-                          </div>
-                        </div>
-                        <div class="tab-pane" id="president-req">
-                          <div class="span4">
-                            <h4>Age Requirement</h4>
-                            <p>35 years of age</p>
-                            <h4>Filing Date</h4>
-                            <p>4/5/2014</p>
-                            <h4>Residency Requirement</h4>
-                            <p>US Resident</p>
-                            <h4>Registration Fees</h4>
-                            <p>$75</p>
-                            <h4>Signatures Required</h4>
-                            <p>500 signatures</p>
-                          </div>
-                          <div class="span4">
-                            
-                          </div>
-                        </div>
-                        <div class="span8 tab-pane" id="president-doit">
-                          <div class="span4">
-                            <h3>Agency of Contact</h3>
-                            <p><a href="#">Office website</a></p>
-                            <p>School Board Office</p>
-                            <p>5400 E K Street</p>
-                            <p>Portland, OR  97505</p>
-                            <p>503-123-1234</p>
-                          </div>
-                          <div class="span4">
-                            <p><a class="btn" href="#">Form of Declaration &raquo;</a></p>
-                          </div>
-                        </div>
-                        <div class="span8 tab-pane" id="president-contact">
-                          <div class="span4">
-                            <h3>Contact Information</h3>
-                            <p><a href="#">Office website</a></p>
-                            <p>School Board Office</p>
-                            <p>5400 E K Street</p>
-                            <p>Portland, OR  97505</p>
-                            <p>503-123-1234</p>
-                          </div>
-                        </div>
-
-
-                    </div>
-                    
-                 </div>
-                </div>
-                </div>
-                <div class="tab-pane" id="state">.2..</div>
-                <div class="tab-pane" id="county">3...</div>
-                <div class="tab-pane" id="local">.4..</div>
-              </div>
+  <div class="election-rows">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="map"></div>
+      </div>
+    </div>
+    <h3>Here is a list of your representatives and offices you may be eligible for!</h3>
+    <!-- Example row of columns -->
+    <ul class="nav nav-tabs">
+      <li><a href="#national" data-toggle="tab">National</a></li>
+      <li><a href="#state" data-toggle="tab">State</a></li>
+      <li><a href="#county" data-toggle="tab">County</a></li>
+      <li><a href="#local" data-toggle="tab">Local</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active election-group" id="national">
+        <div class="row">
+          <div class="col-md-4">
+            <h2>President</h2>
+            <img src="img/reps/obama.jpg" />
+            <p>Barack Obama</p>
           </div>
-
-
+          <div class="col-md-8">
+            <ul class="nav nav-tabs">
+              <li><a href="#president-benefits" data-toggle="tab">Benefits</a></li>
+              <li><a href="#president-req" data-toggle="tab">Requirements</a></li>
+              <li><a href="#president-doit" data-toggle="tab">Do it!</a></li>
+              <li><a href="#president-contact" data-toggle="tab">Contact Current</a></li>
+            </ul>
+            <div class="row tab-content">
+              <div class="tab-pane active" id="president-benefits">
+                <div class="col-md-4">
+                  <h4>Salary</h4>
+                  <p>$175,000</p>
+                  <h4>Term length</h4>
+                  <p>4 years</p>
+                </div>
+                <div class="col-md-4">
+                  <h4>Job Description</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula consectetur semper. Duis porta a justo nec laoreet. Pellentesque sodales laoreet dolor quis convallis. Aenean massa ipsum, porttitor eget dapibus vel, convallis sit amet elit. Etiam eu venenatis justo. Morbi tincidunt pulvinar orci, ut vestibulum magna porta id. Mauris pretium consequat dui, nec aliquet ligula vulputate sed. In tempor a urna vel congue.</p>
+                </div>
+              </div>
+              <div class="tab-pane" id="president-req">
+                <div class="col-md-4">
+                  <h4>Age Requirement</h4>
+                  <p>35 years of age</p>
+                  <h4>Filing Date</h4>
+                  <p>4/5/2014</p>
+                  <h4>Residency Requirement</h4>
+                  <p>US Resident</p>
+                  <h4>Registration Fees</h4>
+                  <p>$75</p>
+                  <h4>Signatures Required</h4>
+                  <p>500 signatures</p>
+                </div>
+              </div>
+              <div class="span8 tab-pane" id="president-doit">
+                <div class="col-md-4">
+                  <h3>Agency of Contact</h3>
+                  <p><a href="#">Office website</a></p>
+                  <p>School Board Office</p>
+                  <p>5400 E K Street</p>
+                  <p>Portland, OR  97505</p>
+                  <p>503-123-1234</p>
+                </div>
+                <div class="col-md-4">
+                  <p><a class="btn" href="#">Form of Declaration &raquo;</a></p>
+                </div>
+              </div>
+              <div class="span8 tab-pane" id="president-contact">
+                <div class="col-md-4">
+                  <h3>Contact Information</h3>
+                  <p><a href="#">Office website</a></p>
+                  <p>School Board Office</p>
+                  <p>5400 E K Street</p>
+                  <p>Portland, OR  97505</p>
+                  <p>503-123-1234</p>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="state">.2..</div>
+      <div class="tab-pane" id="county">3...</div>
+      <div class="tab-pane" id="local">.4..</div>
+    </div>
+  </div>
+</div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
-        <script src="js/vendor/esri-leaflet.js"></script>
-        <script src="js/vendor/esri-leaflet-geocoder.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+<div id="footer">
+  <div class="container">
+    <p class="text-muted pull-left">Left footer content</p>
+    <p class="text-muted pull-right">Right footer content</p>
+  </div>
+</div>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
-    </body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+<script src="js/vendor/esri-leaflet.js"></script>
+<script src="js/vendor/esri-leaflet-geocoder.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+  function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+  e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+  e.src='//www.google-analytics.com/analytics.js';
+  r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+  ga('create','UA-XXXXX-X');ga('send','pageview');
+</script>
+</body>
 </html>
