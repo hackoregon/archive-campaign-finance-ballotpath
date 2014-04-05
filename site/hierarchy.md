@@ -15,6 +15,7 @@
             * Date of next election
             * Term limits (if any)
         * Application Details
+          * Requirements
           * Steps
           * Deadlines
           * Contact
