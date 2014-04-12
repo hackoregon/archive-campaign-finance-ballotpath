@@ -9,4 +9,12 @@ sudo yum install -y \
   qgis \
   qgis-grass \
   qgis-mapserver \
-  qgis-python
+  qgis-python \
+  dans-gdal-scripts \
+  gdal \
+  gdal-doc \
+  gdal-perl \
+  gdal-python \
+  gdal-ruby \
+  gtatool-gdal \
+  pfstools-gdal
