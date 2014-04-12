@@ -17,4 +17,17 @@ sudo yum install -y \
   gdal-python \
   gdal-ruby \
   gtatool-gdal \
-  pfstools-gdal
+  pfstools-gdal \
+  geos \
+  geos-python \
+  josm \
+  dosm \
+  merkaartor \
+  osm-gps-map \
+  osm2pgsql \
+  osm-gps-map \
+  readosm \
+  routino \
+  proj \
+  proj-epsg \
+  proj-nad
