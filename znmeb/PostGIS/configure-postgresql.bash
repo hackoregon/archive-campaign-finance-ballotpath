@@ -9,6 +9,17 @@
 # AGPL (http://www.gnu.org/licenses/agpl-3.0.txt) for more details.
 #
 
-sudo postgresql-setup initdb
-sudo systemctl enable postgresql
-sudo systemctl start postgresql
+sudo postgresql-setup initdb # will fail harmlessly if database already there
+sudo systemctl enable postgresql # start the server on reboot
+sudo systemctl start postgresql # start the server now
+
+# PostgreSQL username = Linux username
+export PGUSER=${USER}
+
+# create a user
+sudo su - postgres -c "dropuser ${PGUSER}"
+sudo su - postgres -c "createuser -d ${PGUSER}"
+
+# create a 'home' database for the user
+sudo su - postgres -c "dropdb ${PGUSER}"
+sudo su - postgres -c "createdb -O ${PGUSER} ${PGUSER}"
