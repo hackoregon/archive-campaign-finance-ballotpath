@@ -1,7 +1,5 @@
 #! /bin/bash
 su - postgres -c \
-  "psql -d ${1} -c 'CREATE EXTENSION postgis;'"
-su - postgres -c \
   "psql -d ${1} -c 'CREATE EXTENSION fuzzystrmatch;'"
 su - postgres -c \
   "psql -d ${1} -c 'CREATE EXTENSION postgis_tiger_geocoder;'"
