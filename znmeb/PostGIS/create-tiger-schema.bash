@@ -15,5 +15,3 @@ su - postgres -c \
   "psql -d ${1} -c 'GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA tiger TO PUBLIC;'"
 su - postgres -c \
   "psql -d ${1} -c 'ALTER DEFAULT PRIVILEGES IN SCHEMA tiger_data GRANT SELECT, REFERENCES ON TABLES TO PUBLIC;'"
-su - postgres -c \
-  "psql -d ${1} -c 'CREATE EXTENSION address_standardizer;'"
