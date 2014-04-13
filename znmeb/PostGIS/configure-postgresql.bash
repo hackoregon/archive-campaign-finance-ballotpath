@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/bash -v
 #
 # Copyright (C) 2013 by M. Edward (Ed) Borasky
 #
@@ -27,6 +27,7 @@ export PGUSER=${USER}
 
 # create a user
 sudo su - postgres -c "dropdb ${PGUSER}"
+sudo su - postgres -c "dropdb geocoder"
 sudo su - postgres -c "dropuser ${PGUSER}"
 sudo su - postgres -c "createuser -d ${PGUSER}"
 
@@ -35,5 +36,12 @@ sudo su - postgres -c "createdb -O ${PGUSER} ${PGUSER}"
 echo "Create a password for the PostgreSQL user '${PGUSER}'"
 psql -c '\password'
 
-# create the extensions in the home database
-sudo ${HERE}/create-tiger-schema.bash ${PGUSER}
+# create a 'geocoder' database for the user
+sudo su - postgres -c "createdb -O ${PGUSER} geocoder"
+
+# create the PostGIS extensions in both databases
+sudo ${HERE}/create-postgis.bash ${PGUSER}
+sudo ${HERE}/create-postgis.bash geocoder
+
+# create the TIGER extensions in 'geocoder'
+sudo ${HERE}/create-tiger-schema.bash geocoder
