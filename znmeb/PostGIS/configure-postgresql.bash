@@ -14,7 +14,14 @@ sudo systemctl enable postgresql # start the server on reboot
 sudo systemctl start postgresql # start the server now
 
 # password protect the PostgreSQL 'superuser', 'postgres'
+echo "Create a password for 'postgres', the PostgreSQL superuser"
 sudo su - postgres -c "psql -c '\password postgres'"
+
+# install the extensions
+sudo su - postgres -c "psql -c 'CREATE EXTENSION adminpack;'"
+sudo su - postgres -c "psql -c 'CREATE EXTENSION postgis;'"
+sudo su - postgres -c "psql -c 'CREATE EXTENSION fuzzystrmatch;'"
+sudo su - postgres -c "psql -c 'CREATE EXTENSION postgis_tiger_geocoder;'"
 
 # PostgreSQL username = Linux username
 export PGUSER=${USER}
@@ -26,3 +33,13 @@ sudo su - postgres -c "createuser -d ${PGUSER}"
 
 # create a 'home' database for the user
 sudo su - postgres -c "createdb -O ${PGUSER} ${PGUSER}"
+echo "Create a password for the PostgreSQL user '${PGUSER}'"
+psql -c '\password'
+
+# create the extensions in the home database
+sudo su - postgres -c \
+  "psql -d ${PGUSER}  -c 'CREATE EXTENSION postgis;'"
+sudo su - postgres -c \
+  "psql -d ${PGUSER}  -c 'CREATE EXTENSION fuzzystrmatch;'"
+sudo su - postgres -c \
+  "psql -d ${PGUSER}  -c 'CREATE EXTENSION postgis_tiger_geocoder;'"
