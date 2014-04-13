@@ -17,9 +17,9 @@ sudo systemctl start postgresql # start the server now
 export PGUSER=${USER}
 
 # create a user
+sudo su - postgres -c "dropdb ${PGUSER}"
 sudo su - postgres -c "dropuser ${PGUSER}"
 sudo su - postgres -c "createuser -d ${PGUSER}"
 
 # create a 'home' database for the user
-sudo su - postgres -c "dropdb ${PGUSER}"
 sudo su - postgres -c "createdb -O ${PGUSER} ${PGUSER}"
