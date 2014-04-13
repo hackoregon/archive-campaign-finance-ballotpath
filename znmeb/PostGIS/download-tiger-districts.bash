@@ -14,14 +14,22 @@ sudo rm -fr /gisdata/temp
 sudo mkdir -p /gisdata/temp
 sudo chown -R ${USER}:${USER} /gisdata
 
-# congressional districts
-wget ftp://ftp2.census.gov/geo/tiger/TIGER2013/CD/tl_2013_us_cd113.zip
+cd /gisdata
 
-# school districts (elementary, secondary, unified)
-wget http://www2.census.gov/geo/tiger/TIGER2013/ELSD/tl_2013_41_elsd.zip
-wget http://www2.census.gov/geo/tiger/TIGER2013/SCSD/tl_2013_41_scsd.zip
-wget http://www2.census.gov/geo/tiger/TIGER2013/UNSD/tl_2013_41_unsd.zip
+# congressional districts (all USA)
+wget ftp://ftp2.census.gov/geo/tiger/TIGER2013/CD/ \
+  --no-parent --relative --recursive --level=1 --accept=zip --mirror --reject=html 
 
-# state legislative districts (lower, upper)
-wget http://www2.census.gov/geo/tiger/TIGER2013/SLDL/tl_2013_41_sldl.zip
-wget http://www2.census.gov/geo/tiger/TIGER2013/SLDU/tl_2013_41_sldu.zip
+# Oregon school districts (elementary, secondary, unified)
+wget ftp://ftp2.census.gov/geo/tiger/TIGER2013/ELSD/tl_*_41_* \
+  --no-parent --relative --recursive --level=1 --accept=zip --mirror --reject=html 
+wget ftp://ftp2.census.gov/geo/tiger/TIGER2013/SCSD/tl_*_41_* \
+  --no-parent --relative --recursive --level=1 --accept=zip --mirror --reject=html 
+wget ftp://ftp2.census.gov/geo/tiger/TIGER2013/UNSD/tl_*_41_* \
+  --no-parent --relative --recursive --level=1 --accept=zip --mirror --reject=html 
+
+# Oregon state legislative districts (lower, upper)
+wget ftp://ftp2.census.gov/geo/tiger/TIGER2013/SLDL/tl_*_41_* \
+  --no-parent --relative --recursive --level=1 --accept=zip --mirror --reject=html 
+wget ftp://ftp2.census.gov/geo/tiger/TIGER2013/SLDU/tl_*_41_* \
+  --no-parent --relative --recursive --level=1 --accept=zip --mirror --reject=html 
