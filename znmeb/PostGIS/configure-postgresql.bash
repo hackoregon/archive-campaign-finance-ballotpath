@@ -13,6 +13,9 @@ sudo postgresql-setup initdb # will fail harmlessly if database already there
 sudo systemctl enable postgresql # start the server on reboot
 sudo systemctl start postgresql # start the server now
 
+# password protect the PostgreSQL 'superuser', 'postgres'
+sudo su - postgres -c "psql -c '\password postgres'"
+
 # PostgreSQL username = Linux username
 export PGUSER=${USER}
 
