@@ -43,12 +43,29 @@
 <h1>Setting up PostGIS</h1>
 <p>The current setup is for Fedora Linux 20, and all the dependencies are already present in <a href="http://znmeb.github.io/CompJournoStick/">CompJournoStick</a>. It’s pretty easy to port this to RHEL/CentOS, Ubuntu or openSUSE. I’ll do that once we know where servers, etc. are going to reside, but for now I’m staying on the Fedora desktop.</p>
 <ol style="list-style-type: decimal">
-<li><p>Install the QGIS repository.</p>
-<pre><code>sudo cp qgis.repo /etc/yum.repos.d</code></pre></li>
-<li>Install PostGIS and QGIS.</li>
-<li>Configure PostgreSQL.</li>
-<li></li>
+<li><p>Install the Linux packages</p>
+<pre><code>./1yum-install-dependencies.bash</code></pre>
+This will install PostgreSQL, PgAdmin3, PostGIS, QGIS and some OpenStreetMap tools, plus any dependencies. You only have to run this once.</li>
+<li><p>Configure PostgreSQL</p>
+<pre><code>./2configure-postgresql.bash</code></pre>
+This creates the PostgreSQL data area on the hard drive, enables the PostgreSQL server to start at boot time, starts it and installs the ‘adminpack’ extension. It will ask you to create a password for the PostgreSQL ‘superuser’, named ‘postgres’. You only have to run this once, but it won’t hurt to run it again.</li>
+<li><p>Set up the PostGIS databases</p>
+<pre><code>./3set-up-postgis.bash</code></pre>
+This will create a PostgreSQL user with the same name as your Fedora Linux login. If the user exists already, it will be deleted and recreated. Then it will create the following databases for that user:
+<ul>
+<li>congress_districts: US Congressional districts for the whole USA</li>
+<li>state_legislature_upper_districts: Oregon Senate districts</li>
+<li>state_legislature_lower_districts: Oregon House districts</li>
+<li>unified_school_districts: Unified school districts for Oregon</li>
+<li>elementary_school_districts: Elementary school districts for Oregon</li>
+<li>secondary_school_districts: Secondary school districts for Oregon</li>
+<li>geocoder: A database for the TIGER geocoding / reverse geocoding package</li>
+</ul></li>
+<li><p>Download the district shapefiles</p>
+<pre><code>./4download-tiger-districts.bash</code></pre>
+<p>This will download the shapefiles (except for the ‘geocoder’ data) required to populate the databases from the US Census Bureau’s TIGER FTP site. The first time you run it, it will take longer because it’s downloading, but subsequent runs will only download if the file has changed on the FTP site.</p></li>
 </ol>
+<p>After the download, the script unpacks the ZIP archives and imports them into the databases.</p>
 <div class="references">
 
 </div>
