@@ -18,7 +18,7 @@ The current setup is for Fedora Linux 20, and all the dependencies are already p
       ```
       ./3set-up-postgis.bash
       ```
-      This will create a PostgreSQL user with the same name as your Fedora Linux login. If the user exists already, it will be deleted and recreated. Then it will create the following databases for that user:
+      This will create a PostgreSQL user with the same name as your Fedora Linux login. If the user exists already, it will be deleted and recreated. Then it will create the following empty databases for that user:
 
             congress_districts: US Congressional districts for the whole USA
             state_legislature_upper_districts: Oregon Senate districts
