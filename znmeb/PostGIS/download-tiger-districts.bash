@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/bash -v
 #
 # Copyright (C) 2014 by M. Edward (Ed) Borasky
 #
@@ -51,3 +51,17 @@ unzip -o -d state_legislature_lower_districts \
   ftp2.census.gov/geo/tiger/TIGER2013/SLDL/tl_*_41_*
 unzip -o -d state_legislature_upper_districts \
   ftp2.census.gov/geo/tiger/TIGER2013/SLDU/tl_*_41_*
+
+# push into databases
+for i in \
+  congress_districts \
+  elementary_school_districts \
+  secondary_school_districts \
+  unified_school_districts \
+  state_legislature_lower_districts \
+  state_legislature_upper_districts
+do
+  pushd ${i}
+  shp2pgsql -c -D -I tl*shp | psql -d ${i}
+  popd
+done
