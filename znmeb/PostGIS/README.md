@@ -19,6 +19,7 @@ The current setup is for Fedora Linux 20, and all the dependencies are already p
       ./3set-up-postgis.bash
       ```
       This will create a PostgreSQL user with the same name as your Fedora Linux login. If the user exists already, it will be deleted and recreated. Then it will create the following databases for that user:
+
             * congress_districts: US Congressional districts for the whole USA
             * state_legislature_upper_districts: Oregon Senate districts
             * state_legislature_lower_districts: Oregon House districts
@@ -33,4 +34,4 @@ The current setup is for Fedora Linux 20, and all the dependencies are already p
       ```
       This will download the shapefiles (except for the 'geocoder' data) required to populate the databases from the US Census Bureau's TIGER FTP site. The first time you run it, it will take longer because it's downloading, but subsequent runs will only download if the file has changed on the FTP site.
 
-After the download, the script unpacks the ZIP archives and imports them into the databases.
+      After the download, the script unpacks the ZIP archives and imports them into the databases.
