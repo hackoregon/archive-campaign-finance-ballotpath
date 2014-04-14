@@ -1,4 +1,4 @@
-#! /bin/bash -v
+#! /bin/bash
 #
 # Copyright (C) 2014 by M. Edward (Ed) Borasky
 #
@@ -25,27 +25,39 @@ sudo su - postgres -c "psql -c 'CREATE EXTENSION adminpack;'"
 # PostgreSQL username = Linux username
 export PGUSER=${USER}
 
-# create a user
-sudo su - postgres -c "dropdb ${PGUSER}"
-sudo su - postgres -c "dropdb geocoder"
+# drop the old databases if any
+for i in \
+  ${PGUSER} \
+  geocoder \
+  congress_districts \
+  elementary_school_districts \
+  secondary_school_districts \
+  state_legislature_lower_districts \
+  state_legislature_upper_districts
+do
+  sudo su - postgres -c "dropdb ${i}"
+done
+
+# drop and re-create the user
 sudo su - postgres -c "dropuser ${PGUSER}"
 sudo su - postgres -c "createuser -d ${PGUSER}"
 
-# create a 'home' database for the user
-sudo su - postgres -c "createdb -O ${PGUSER} ${PGUSER}"
-echo "Create a password for the PostgreSQL user '${PGUSER}'"
-psql -c '\password'
-
-# create a 'geocoder' database for the user
-sudo su - postgres -c "createdb -O ${PGUSER} geocoder"
-
-# create a 'congress_districts' database for the user
-sudo su - postgres -c "createdb -O ${PGUSER} congress_districts"
-
-# create the PostGIS extensions in all databases
-sudo ${HERE}/create-postgis.bash ${PGUSER}
-sudo ${HERE}/create-postgis.bash geocoder
-sudo ${HERE}/create-postgis.bash congress_districts
+# create databases for the user
+for i in \
+  ${PGUSER} \
+  geocoder \
+  congress_districts \
+  elementary_school_districts \
+  secondary_school_districts \
+  state_legislature_lower_districts \
+  state_legislature_upper_districts
+do
+  sudo su - postgres -c "createdb -O ${PGUSER} ${i}"
+  sudo ${HERE}/create-postgis.bash ${i}
+done
 
 # create the TIGER extensions in 'geocoder'
 sudo ${HERE}/create-tiger-schema.bash geocoder
+
+echo "Create a password for the PostgreSQL user '${PGUSER}'"
+psql -c '\password'
