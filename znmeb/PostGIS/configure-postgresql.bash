@@ -39,9 +39,13 @@ psql -c '\password'
 # create a 'geocoder' database for the user
 sudo su - postgres -c "createdb -O ${PGUSER} geocoder"
 
-# create the PostGIS extensions in both databases
+# create a 'congress_districts' database for the user
+sudo su - postgres -c "createdb -O ${PGUSER} congress_districts"
+
+# create the PostGIS extensions in all databases
 sudo ${HERE}/create-postgis.bash ${PGUSER}
 sudo ${HERE}/create-postgis.bash geocoder
+sudo ${HERE}/create-postgis.bash congress_districts
 
 # create the TIGER extensions in 'geocoder'
 sudo ${HERE}/create-tiger-schema.bash geocoder
