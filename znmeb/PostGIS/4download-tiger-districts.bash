@@ -10,6 +10,7 @@
 #
 
 # make shapefile destinations
+sudo mkdir -p /gisdata
 sudo chown -R ${USER}:${USER} /gisdata
 for i in \
   congress_districts \
