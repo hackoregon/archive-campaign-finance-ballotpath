@@ -3,18 +3,21 @@
 The current setup is for Fedora Linux 20, and all the dependencies are already present in [CompJournoStick](http://znmeb.github.io/CompJournoStick/). It's pretty easy to port this to RHEL/CentOS, Ubuntu or openSUSE. I'll do that once we know where servers, etc. are going to reside, but for now I'm staying on the Fedora desktop.
 
 1. Install the Linux packages
+
 ```
 ./1yum-install-dependencies.bash
 ```
 This will install PostgreSQL, PgAdmin3, PostGIS, QGIS and some OpenStreetMap tools, plus any dependencies. You only have to run this once.
 
 1. Configure PostgreSQL
+
 ```
 ./2configure-postgresql.bash
 ```
 This creates the PostgreSQL data area on the hard drive, enables the PostgreSQL server to start at boot time, starts it and installs the 'adminpack' extension. It will ask you to create a password for the PostgreSQL 'superuser', named 'postgres'. You only have to run this once, but it won't hurt to run it again.
 
 1. Set up the PostGIS databases
+
 ```
 ./3set-up-postgis.bash
 ```
@@ -28,6 +31,7 @@ This will create a PostgreSQL user with the same name as your Fedora Linux login
     * geocoder: A database for the TIGER geocoding / reverse geocoding package
 
 1. Download the district shapefiles
+
 ```
 ./4download-tiger-districts.bash
 ```
