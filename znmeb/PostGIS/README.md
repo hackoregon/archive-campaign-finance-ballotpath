@@ -7,8 +7,8 @@ The current setup is for Fedora Linux 20, and all the dependencies are already p
 ```
 ./1yum-install-dependencies.bash
 ```
-This will install PostgreSQL, PgAdmin3, PostGIS, QGIS and some OpenStreetMap tools, plus any dependencies. You only have to run this once.
 
+This will install PostgreSQL, PgAdmin3, PostGIS, QGIS and some OpenStreetMap tools, plus any dependencies. You only have to run this once.
 1. Configure PostgreSQL
 
 ```
