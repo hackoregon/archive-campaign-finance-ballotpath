@@ -1,6 +1,6 @@
 # Setting up PostGIS
 
-The current setup is for Fedora Linux 20, and all the dependencies are already present in [CompJournoStick](http://znmeb.github.io/CompJournoStick/). It's pretty easy to port this to RHEL/CentOS, Ubuntu or openSUSE. I'll do that once we know where servers, etc. are going to reside, but for now I'm staying on the Fedora desktop.
+The current setup is for [Fedora Linux 20](https://fedoraproject.org/), and all the dependencies are already present in [CompJournoStick](http://znmeb.github.io/CompJournoStick/). It's pretty easy to port this to RHEL/CentOS, Ubuntu or openSUSE. I'll do that once we know where servers, etc. are going to reside, but for now I'm staying on the Fedora desktop.
 
 Note that with PostgreSQL on Linux, there are two sets of users, Linux users and PostgreSQL database users, often called 'roles' in PostgreSQL jargon. For most desktop installations, things are easier if they are mapped one-to-one. That is, the PostgreSQL user 'znmeb' is the same person as the Linux user 'znmeb'.
 
