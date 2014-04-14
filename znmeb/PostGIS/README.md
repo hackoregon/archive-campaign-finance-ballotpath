@@ -22,7 +22,7 @@ When PostgreSQL is installed and configured, there will be a 'postgres' Linux us
       ```
       ./3set-up-postgis.bash
       ```
-      This will create a _non-superuser_ PostgreSQL user with the same name as your Fedora Linux login. If the user exists already, it will be deleted and recreated. Then it will create the following empty databases for that user:
+      This will create a _non-superuser_ PostgreSQL role/user with the same name as your Fedora Linux login. If the role/user exists already, it will be deleted and recreated. Then the script will create the following empty databases for that user:
 
             congress_districts: US Congressional districts for the whole USA
             state_legislature_upper_districts: Oregon Senate districts
