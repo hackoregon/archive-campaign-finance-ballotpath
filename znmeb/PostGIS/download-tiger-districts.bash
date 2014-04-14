@@ -9,27 +9,45 @@
 # AGPL (http://www.gnu.org/licenses/agpl-3.0.txt) for more details.
 #
 
-# make workspace
-sudo rm -fr /gisdata/temp
-sudo mkdir -p /gisdata/temp
+# make shapefile destinations
 sudo chown -R ${USER}:${USER} /gisdata
+for i in \
+  congress_districts \
+  elementary_school_districts \
+  secondary_school_districts \
+  unified_school_districts \
+  state_legislature_lower_districts \
+  state_legislature_upper_districts
+do
+  rm -fr /gisdata/${i}
+  mkdir -p /gisdata/${i}
+done
 
 cd /gisdata
 
-# congressional districts (all USA)
-wget ftp://ftp2.census.gov/geo/tiger/TIGER2013/CD/ \
-  --no-parent --relative --recursive --level=1 --accept=zip --mirror --reject=html 
+# download data
+for i in \
+  ftp://ftp2.census.gov/geo/tiger/TIGER2013/CD/tl* \
+  ftp://ftp2.census.gov/geo/tiger/TIGER2013/ELSD/tl_*_41_* \
+  ftp://ftp2.census.gov/geo/tiger/TIGER2013/SCSD/tl_*_41_* \
+  ftp://ftp2.census.gov/geo/tiger/TIGER2013/UNSD/tl_*_41_* \
+  ftp://ftp2.census.gov/geo/tiger/TIGER2013/SLDL/tl_*_41_* \
+  ftp://ftp2.census.gov/geo/tiger/TIGER2013/SLDU/tl_*_41_*
+do
+  wget ${i} --no-parent --relative --recursive --level=1 --accept=zip \
+    --mirror --reject=html 
+done
 
-# Oregon school districts (elementary, secondary, unified)
-wget ftp://ftp2.census.gov/geo/tiger/TIGER2013/ELSD/tl_*_41_* \
-  --no-parent --relative --recursive --level=1 --accept=zip --mirror --reject=html 
-wget ftp://ftp2.census.gov/geo/tiger/TIGER2013/SCSD/tl_*_41_* \
-  --no-parent --relative --recursive --level=1 --accept=zip --mirror --reject=html 
-wget ftp://ftp2.census.gov/geo/tiger/TIGER2013/UNSD/tl_*_41_* \
-  --no-parent --relative --recursive --level=1 --accept=zip --mirror --reject=html 
-
-# Oregon state legislative districts (lower, upper)
-wget ftp://ftp2.census.gov/geo/tiger/TIGER2013/SLDL/tl_*_41_* \
-  --no-parent --relative --recursive --level=1 --accept=zip --mirror --reject=html 
-wget ftp://ftp2.census.gov/geo/tiger/TIGER2013/SLDU/tl_*_41_* \
-  --no-parent --relative --recursive --level=1 --accept=zip --mirror --reject=html 
+# unzip
+unzip -o -d congress_districts \
+  ftp2.census.gov/geo/tiger/TIGER2013/CD/tl*
+unzip -o -d elementary_school_districts \
+  ftp2.census.gov/geo/tiger/TIGER2013/ELSD/tl_*_41_*
+unzip -o -d secondary_school_districts \
+  ftp2.census.gov/geo/tiger/TIGER2013/SCSD/tl_*_41_*
+unzip -o -d unified_school_districts \
+  ftp2.census.gov/geo/tiger/TIGER2013/UNSD/tl_*_41_*
+unzip -o -d state_legislature_lower_districts \
+  ftp2.census.gov/geo/tiger/TIGER2013/SLDL/tl_*_41_*
+unzip -o -d state_legislature_upper_districts \
+  ftp2.census.gov/geo/tiger/TIGER2013/SLDU/tl_*_41_*
