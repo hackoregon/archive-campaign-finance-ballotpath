@@ -20,7 +20,7 @@ The current setup is for Fedora Linux 20, and all the dependencies are already p
       ```
       This will create a PostgreSQL user with the same name as your Fedora Linux login. If the user exists already, it will be deleted and recreated. Then it will create the following databases for that user:
 
-            congress_districts: US Congressional districts _for the whole USA_
+            congress_districts: US Congressional districts for the whole USA
             state_legislature_upper_districts: Oregon Senate districts
             state_legislature_lower_districts: Oregon House districts
             unified_school_districts: Unified school districts for Oregon
