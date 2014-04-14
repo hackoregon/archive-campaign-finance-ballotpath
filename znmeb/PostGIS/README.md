@@ -53,8 +53,10 @@ This is a three-step process.
 	export PGPASSWORD=yourpasswordhere
 	```
 	Change 'yourpasswordhere' to the PostgreSQL password for the 'postgres' user. Notes:
+	
 		* There may be more than one instance; you need to change all of them.
 		* If your password contains special characters, you'll need to enclose it in single quotes. For example,
+
 		```
 		export PGPASSWORD='duck,g00s3'
 		```
