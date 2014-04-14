@@ -30,5 +30,5 @@ do
   sed -i 's;export PGHOST=localhost;#export PGHOST=localhost;' ${i}
 done
 
-# change owner to 'postgres'
+# change owner to 'postgres' - the generated scripts have to run as 'postgres'
 sudo chown -R postgres:postgres /gisdata
