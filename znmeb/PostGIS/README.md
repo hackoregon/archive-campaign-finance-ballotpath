@@ -48,10 +48,15 @@ This is a three-step process.
 	sudo su - postgres
 	cd /gisdata
 	```
-	This puts you into the PostgreSQL Linux maintenance account. The scripts require this 'superuser' privilege to run. Edit the two 'bash' scripts to set the ***PostgreSQL*** password for the 'postgres' account - you should have set this in the second step.
+	This puts you into the PostgreSQL Linux maintenance account. The scripts require this 'superuser' privilege to run. Edit the two 'bash' scripts to set the ***PostgreSQL*** password for the 'postgres' account - you should have set this in the second step. You'll see a line
+	```
+	export PGPASSWORD=yourpasswordhere
+	```
+	Change 'yourpasswordhere' to the PostgreSQL password for the 'postgres' user.
+
 	Finally, run the scripts.
 	```
 	./state-county.bash
-	..oregon-washington.bash
+	./oregon-washington.bash
 	```
 	Like the previous download script, they will run longer the first time while downloading the raw data from the TIGER FTP site. Later ones will only download changed ZIP archives.
