@@ -6,13 +6,13 @@ The current setup is for Fedora Linux 20, and all the dependencies are already p
       ```
       ./1yum-install-dependencies.bash
       ```
-      This will install PostgreSQL, PgAdmin3, PostGIS, QGIS and some OpenStreetMap tools, plus any dependencies. You only have to run this once.
+      This will install PostgreSQL, PgAdmin3, PostGIS, QGIS and some OpenStreetMap tools, plus any dependencies. You only have to run this once. It won't hurt anything if you run it again.
 
 2. Configure PostgreSQL
       ```
       ./2configure-postgresql.bash
       ```
-      This creates the PostgreSQL data area on the hard drive, enables the PostgreSQL server to start at boot time, starts it and installs the 'adminpack' extension. It will ask you to create a password for the PostgreSQL 'superuser', named 'postgres'. You only have to run this once, but it won't hurt to run it again.
+      This creates the PostgreSQL data area on the hard drive, enables the PostgreSQL server to start at boot time, starts it and installs the 'adminpack' extension. It will ask you to create a password for the PostgreSQL 'superuser', named 'postgres'. You only have to run this once, but it won't hurt anything if you run it again.
 
 3. Set up the PostGIS databases
       ```
