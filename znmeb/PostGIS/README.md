@@ -2,11 +2,15 @@
 
 The current setup is for Fedora Linux 20, and all the dependencies are already present in [CompJournoStick](http://znmeb.github.io/CompJournoStick/). It's pretty easy to port this to RHEL/CentOS, Ubuntu or openSUSE. I'll do that once we know where servers, etc. are going to reside, but for now I'm staying on the Fedora desktop.
 
+Note that with PostgreSQL on Linux, there are two sets of users, Linux users and PostgreSQL database users, often called 'roles' in PostgreSQL jargon. For most desktop installations, things are easier if they are mapped one-to-one. That is, the PostgreSQL user 'znmeb' is the same person as the Linux user 'znmeb'.
+
+When PostgreSQL is installed and configured, there will be a 'postgres' Linux user. And there will be a 'postgres' database role (user) inside the PostgreSQL database. This database user has 'superuser' powers - it can create other users and in general mess with stuff inside PostgreSQL just like 'root' can on a Linux system.
+
 1. Install the Linux packages
       ```
       ./1yum-install-dependencies.bash
       ```
-      This will install PostgreSQL, PgAdmin3, PostGIS, QGIS and some OpenStreetMap tools, plus any dependencies. You only have to run this once. It won't hurt anything if you run it again.
+      This will install [PostgreSQL](http://www.postgresql.org/), [pgAdmin](http://www.pgadmin.org/index.php), [PostGIS](http://postgis.net/), [QGIS](http://www.qgis.org/en/site/) and some [OpenStreetMap](www.openstreetmap.org/) tools, plus any dependencies. You only have to run this once. It won't hurt anything if you run it again.
 
 2. Configure PostgreSQL
       ```
