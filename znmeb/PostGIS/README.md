@@ -36,7 +36,7 @@ When PostgreSQL is installed and configured, there will be a 'postgres' Linux us
       ```
       ./4download-tiger-districts.bash
       ```
-      This will download the shapefiles (except for the 'geocoder' data) required to populate the databases from the US Census Bureau's TIGER FTP site. The first time you run it, it will take longer because it's downloading, but subsequent runs will only download if the file has changed on the FTP site.
+      This will download the shapefiles (except for the 'geocoder' data) required to populate the databases from the [US Census Bureau's TIGER/Line® FTP site](http://www.census.gov/geo/maps-data/data/tiger-line.html). The first time you run it, it will take longer because it's downloading, but subsequent runs will only download if the file has changed on the FTP site.
 
       After the download, the script unpacks the ZIP archives and imports them into the databases.
 
