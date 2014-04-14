@@ -9,14 +9,15 @@ The current setup is for Fedora Linux 20, and all the dependencies are already p
 ```
 
 This will install PostgreSQL, PgAdmin3, PostGIS, QGIS and some OpenStreetMap tools, plus any dependencies. You only have to run this once.
-1. Configure PostgreSQL
+
+2. Configure PostgreSQL
 
 ```
 ./2configure-postgresql.bash
 ```
 This creates the PostgreSQL data area on the hard drive, enables the PostgreSQL server to start at boot time, starts it and installs the 'adminpack' extension. It will ask you to create a password for the PostgreSQL 'superuser', named 'postgres'. You only have to run this once, but it won't hurt to run it again.
 
-1. Set up the PostGIS databases
+3. Set up the PostGIS databases
 
 ```
 ./3set-up-postgis.bash
@@ -30,7 +31,7 @@ This will create a PostgreSQL user with the same name as your Fedora Linux login
     * secondary_school_districts: Secondary school districts for Oregon
     * geocoder: A database for the TIGER geocoding / reverse geocoding package
 
-1. Download the district shapefiles
+4. Download the district shapefiles
 
 ```
 ./4download-tiger-districts.bash
