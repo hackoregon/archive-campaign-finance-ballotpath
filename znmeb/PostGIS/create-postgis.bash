@@ -1,4 +1,4 @@
-#! /bin/bash -v
+#! /bin/bash
 #
 # Copyright (C) 2014 by M. Edward (Ed) Borasky
 #
