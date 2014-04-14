@@ -35,3 +35,23 @@ The current setup is for Fedora Linux 20, and all the dependencies are already p
       This will download the shapefiles (except for the 'geocoder' data) required to populate the databases from the US Census Bureau's TIGER FTP site. The first time you run it, it will take longer because it's downloading, but subsequent runs will only download if the file has changed on the FTP site.
 
       After the download, the script unpacks the ZIP archives and imports them into the databases.
+
+5. Download the TIGER geocoder data
+This is a three-step process.
+	```
+	./5make-geocoder-download-scripts.bash
+	```
+	This executes some code in the PostGIS package to create two scripts in `/gisdata`. One script, called 'state-county.bash', downloads nationwide state and county shapefiles. The second, called 'oregon-washington.bash', downloads detailed shapefiles for Oregon and Washington states. I've put Washington state data here mostly for my own use; Census data treats Clark and Skamania counties as part of the Portland metro area.
+
+	After the scripts are generated, do the following:
+	```
+	sudo su - postgres
+	cd /gisdata
+	```
+	This puts you into the PostgreSQL Linux maintenance account. The scripts require this 'superuser' privilege to run. Edit the two 'bash' scripts to set the ***PostgreSQL*** password for the 'postgres' account - you should have set this in the second step.
+	Finally, run the scripts.
+	```
+	./state-county.bash
+	..oregon-washington.bash
+	```
+	Like the previous download script, they will run longer the first time while downloading the raw data from the TIGER FTP site. Later ones will only download changed ZIP archives.
