@@ -62,6 +62,6 @@ for i in \
   state_legislature_upper_districts
 do
   pushd ${i}
-  shp2pgsql -c -D -I tl*shp | psql -d ${i}
+  shp2pgsql -d -D -I tl*shp | psql -d ${i}
   popd
 done
