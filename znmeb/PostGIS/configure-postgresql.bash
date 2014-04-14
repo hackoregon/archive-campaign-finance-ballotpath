@@ -32,6 +32,7 @@ for i in \
   congress_districts \
   elementary_school_districts \
   secondary_school_districts \
+  unified_school_districts \
   state_legislature_lower_districts \
   state_legislature_upper_districts
 do
@@ -49,6 +50,7 @@ for i in \
   congress_districts \
   elementary_school_districts \
   secondary_school_districts \
+  unified_school_districts \
   state_legislature_lower_districts \
   state_legislature_upper_districts
 do
