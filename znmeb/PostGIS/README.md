@@ -40,8 +40,7 @@ When PostgreSQL is installed and configured, there will be a 'postgres' Linux us
 
       After the download, the script unpacks the ZIP archives and imports them into the databases.
 
-5. Download the TIGER geocoder data
-This is a three-step process.
+5. Download the TIGER geocoder data. This is a three-step process. For more details, see [_PostGIS in Action, Second Edition_](http://www.manning.com/obe2/).
 	```
 	./5make-geocoder-download-scripts.bash
 	```
