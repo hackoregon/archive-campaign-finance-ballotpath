@@ -17,7 +17,7 @@
 "Sherman County, Oregon","http://www.sherman-county.com/archive_of_election_results.asp","http://www.sherman-county.com/govt_assessor.asp","No"
 "Wasco County, Oregon","http://co.wasco.or.us/county/dept_clerk_elections.cfm","http://co.wasco.or.us/county/dept_works_gis.cfm","No (paid CD/DVD)"
 "Hood River County, Oregon","http://www.co.hood-river.or.us/index.asp?Type=B_BASIC&SEC={B3760B28-AC32-4807-B236-6309313184F8}","http://www.co.hood-river.or.us/index.asp?Type=B_BASIC&SEC={282D7000-DA1E-411C-9620-6B27BB917C50}","No"
-"Multnomah County, Oregon","http://www.co.washington.or.us/AssessmentTaxation/Elections/ElectionsArchive/index.cfm","http://web.multco.us/gis/data-and-feeds-0","Probably - need to check Metro RLIS and Portland Civic Apps"
+"Multnomah County, Oregon","http://www.co.washington.or.us/AssessmentTaxation/Elections/ElectionsArchive/index.cfm","http://web.multco.us/gis/data-and-feeds-0","Probably - need to check Metro RLIS and Portland Civic Apps.  The County does claim to have a downloadable gis shapefile for 2012 precints (doesn't specify elections) but the link doesn't work (MC) [http://web.multco.us/elections/multnomah-county-precinct-maps-2012].  Sadly, RLIS looks like it only has congressional precincts"
 "Clackamas County, Oregon","http://www.clackamas.us/elections/results.html","http://www.clackamas.us/gis/dataportal.html","Yes"
 "Marion County, Oregon","http://www.co.marion.or.us/CO/elections/Results/","http://gis.co.marion.or.us/GISDownload/gisdownload.aspx","Yes"
 "Linn County, Oregon","http://www.co.linn.or.us/elections/index.php?content=electionarchive","http://www.co.linn.or.us/webmap/data.asp","Yes"
