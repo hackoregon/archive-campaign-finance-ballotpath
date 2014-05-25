@@ -4,5 +4,5 @@
 SELECT loader_generate_nation_script('sh');
 \o
 \o /gisdata/oregon-washington.bash
-SELECT loader_generate_script(ARRAY['OR','WA'], 'sh');
+SELECT loader_generate_script(ARRAY['OR'], 'sh');
 \o
