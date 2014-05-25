@@ -19,3 +19,5 @@ sudo su - postgres -c "psql -c '\password postgres'"
 
 # install the extensions - will ERROR harmlessly if they're already there
 sudo su - postgres -c "psql -c 'CREATE EXTENSION adminpack;'"
+sudo su - postgres -c \
+  "psql -c 'CREATE EXTENSION plpgsql WITH SCHEMA pg_catalog;'"
